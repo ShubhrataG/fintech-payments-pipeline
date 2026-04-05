@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+
+# Mac system files
+.DS_Store
+
+# Kafka logs
+kafka/logs/
+
+# Delta Lake local files
+*.parquet
+*.crc
+_delta_log/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Credentials — never upload these!
+*.json
+secrets/
+config/credentials.yml
