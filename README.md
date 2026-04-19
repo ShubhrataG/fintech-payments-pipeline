@@ -54,7 +54,7 @@ Payment Sources (Mobile, Web, POS, Stripe)
 - Acts as the audit trail and safety net
 - If anything breaks downstream, we replay from Bronze
 
-![Bronze Layer](Bronze Ingestion.png)
+![Bronze Layer](BronzeIngestion.png)
 
 ### Silver Layer — Transformation and Cleaning
 - Reads from Bronze Delta table
@@ -63,15 +63,15 @@ Payment Sources (Mobile, Web, POS, Stripe)
 - Standardizes timestamps to UTC
 - Validates required fields and flags nulls
 
-![Silver Layer](Silver Transformation.png)
+![Silver Layer](SilverTransformation.png)
 
 ### Gold Layer — Business Metrics
 - Reads from Silver Delta table
 - Aggregates KPIs: transaction volume, fraud signal rate, SLA adherence
 - Optimized for fast Power BI queries
 
-![Gold Layer](Gold Aggregation 1.png)
-![Gold Layer](Gold Aggregation 2.png)
+![Gold Layer](GoldAggregation1.png)
+![Gold Layer](GoldAggregation2.png)
 
 ---
 
