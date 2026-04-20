@@ -1,0 +1,25 @@
+services:
+  airflow:
+    image: apache/airflow:2.8.1
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__SECRET_KEY=fintech_pipeline_secret
+      - _AIRFLOW_DB_MIGRATE=true
+      - _AIRFLOW_WWW_USER_CREATE=true
+      - _AIRFLOW_WWW_USER_USERNAME=admin
+      - _AIRFLOW_WWW_USER_PASSWORD=admin
+      - _AIRFLOW_WWW_USER_FIRSTNAME=Shubhrata
+      - _AIRFLOW_WWW_USER_LASTNAME=Gupta
+      - _AIRFLOW_WWW_USER_EMAIL=shubhratagupta32@gmail.com
+      - _AIRFLOW_WWW_USER_ROLE=Admin
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - airflow-db:/opt/airflow
+    ports:
+      - "8080:8080"
+    command: bash -c "airflow db migrate && airflow users create --username admin --password admin --firstname Shubhrata --lastname Gupta --role Admin --email shubhratagupta32@gmail.com || true && airflow webserver & airflow scheduler"
+
+volumes:
+  airflow-db:

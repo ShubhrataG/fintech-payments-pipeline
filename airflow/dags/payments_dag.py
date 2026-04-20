@@ -47,7 +47,7 @@ def check_data_quality():
     print("Running data quality checks...")
     print("Checking: no nulls in payment_id")
     print("Checking: amount is always positive")
-    print("Checking: status is one of succeeded/failed/pending")
+    print("Checking: status is succeeded/failed/pending")
     print("All data quality checks passed!")
 
 start = EmptyOperator(task_id='start_pipeline', dag=dag)
